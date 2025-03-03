@@ -6,6 +6,8 @@ import { dbConnection } from './mongo.js';
 import limiter from '../src/middlewares/validar-cant-peticiones.js';
 import authRoutes from '../src/auth/auth.routes.js';
 import userRoutes from '../src/users/user.routes.js';
+import categoryRoutes from '../src/category/category.routes.js';
+import productRoutes from '../src/products/products.routes.js';
 
 const middlewares = (app) =>{
     app.use(express.urlencoded({extended: false}));
@@ -19,6 +21,8 @@ const middlewares = (app) =>{
 const routes = (app) =>{
     app.use("/productManager/v1/auth", authRoutes);
     app.use("/productManager/v1/user", userRoutes);
+    app.use("/productManager/v1/category", categoryRoutes);
+    app.use("/productManager/v1/products", productRoutes);
 }
 
 const connectarDB = async () =>{

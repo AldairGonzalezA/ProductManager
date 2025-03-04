@@ -2,18 +2,26 @@ import { response, request} from 'express';
 import User from '../users/user.model.js';
 import Product from '../products/products.model.js';
 import ShoppingCart from './shopping.cart.model.js';
+import Receipt from '../receipts/receipt.model.js';
 
-export const updateShoppingCart = async (req, res) => {
+export const addShoppingCart = async (req, res) => {
     try {
         const user = req.usuario;
         const data = req.body;
-        const product = await Producto.findOne({name: data.product})
+        const product = await Product.findOne({name: data.product})
         let cart = await ShoppingCart.findOne({owner: user._id});
 
         if(!product){
             return res.status(400).json({
                 success: false,
                 msg: 'Product not found in the inventary'
+            })
+        }
+
+        if(product.stock <= 0){
+            return res.status(400).json({
+                success: false,
+                msg: 'Product out of stock'
             })
         }
 
@@ -40,6 +48,8 @@ export const updateShoppingCart = async (req, res) => {
             }
         }
 
+        Product.findByIdAndUpdate(product._id, {sales: sales+1}, {stock: stock-quantity}, {new: true});
+
         cart.totalPrice = cart.products.reduce((sum, item) => sum + (item.price * item.quantity), 0);
         await cart.save();
 
@@ -52,6 +62,36 @@ export const updateShoppingCart = async (req, res) => {
         res.status(500).json({
             success: false,
             msg: 'Error to add the product in the shopping cart',
+            error: error.message
+        })
+    }
+}
+
+export const finalllyShop = async (req, res) => {
+    try {
+        const user = req.usuario;
+        const cart = await ShoppingCart.findOne({owner: user._id});
+
+        if(!cart){
+            return res.status(400).json({
+                success: false,
+                msg: 'Shopping cart is empty'
+            })
+        }
+
+        const receipt = await Receipt.create({
+            customer: user._id,
+            products: cart.products,
+            total: cart.totalPrice
+        })
+
+        await User.findByIdAndUpdate(user_id, {
+            $push: {receipts: receipt._id}
+        })
+    } catch (error) {
+        res.status(500).json({
+            success: false,
+            msg: 'Error to finalize the shopping',
             error: error.message
         })
     }

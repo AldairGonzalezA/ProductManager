@@ -8,6 +8,7 @@ import authRoutes from '../src/auth/auth.routes.js';
 import userRoutes from '../src/users/user.routes.js';
 import categoryRoutes from '../src/category/category.routes.js';
 import productRoutes from '../src/products/products.routes.js';
+import shoppingRoutes from '../src/shoppingCarts/shopping.cart.routes.js';
 
 const middlewares = (app) =>{
     app.use(express.urlencoded({extended: false}));
@@ -23,6 +24,7 @@ const routes = (app) =>{
     app.use("/productManager/v1/user", userRoutes);
     app.use("/productManager/v1/category", categoryRoutes);
     app.use("/productManager/v1/products", productRoutes);
+    app.use("/productManager/v1/shopping", shoppingRoutes)
 }
 
 const connectarDB = async () =>{

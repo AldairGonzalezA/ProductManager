@@ -36,6 +36,10 @@ const UserSchema = Schema({
         required: true,
         enum: ['ADMIN_ROLE','CLIENT_ROLE']
     },
+    receipts:[{
+        type: Schema.Types.ObjectId,
+        ref: 'Receipt'
+    }],
     estado: {
         type: Boolean,
         default: true

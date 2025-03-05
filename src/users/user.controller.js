@@ -23,7 +23,7 @@ export const getUsers = async (req = request, res = response) => {
         res.status(500).json({
             sucess: false,
             msg: 'Error al obtener usuarios',
-            error
+            error: error.message
         })
     }
 }

@@ -1,6 +1,6 @@
 import { Router } from "express";
 import { check } from 'express-validator';
-import { addShoppingCart, finalllyShop } from "./shopping.cart.controller.js";
+import { addShoppingCart, checkOut } from "./shopping.cart.controller.js";
 import { validarJWT } from "../middlewares/validar-jwt.js";
 import { validarCampos } from "../middlewares/validar-campos.js";
 
@@ -12,18 +12,19 @@ router.post(
         validarJWT,
         check("quantity", "quantity is required").not().isEmpty(),
         check("quantity", "quantity must be a number").isNumeric(),
-        check("quantity", "quantity must be greater than 0").isInt({ gt: 0 }),
+        check("quantity", "quantity must be greater than 0").isInt({ min: 0 }),
         validarCampos
     ],
     addShoppingCart
 )
 
 router.post(
-    "/finally",
+    "/checkOut",
     [
         validarJWT,
         validarCampos
-    ]
+    ],
+    checkOut
 )
 
 export default router;

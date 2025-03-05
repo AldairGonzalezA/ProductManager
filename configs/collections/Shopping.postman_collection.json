@@ -1,9 +1,9 @@
 {
 	"info": {
-		"_postman_id": "29e1b5f7-2b5b-42f9-bd17-9a7e5c3b809d",
+		"_postman_id": "a05d91e4-6bf8-4421-9df5-9f19598ac238",
 		"name": "Shopping",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "42082102"
+		"_exporter_id": "42663886"
 	},
 	"item": [
 		{
@@ -13,13 +13,13 @@
 				"header": [
 					{
 						"key": "x-token",
-						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2M3Y2RjNDBlN2M5MGQ4Y2I4MGQ2YTIiLCJpYXQiOjE3NDExNTUwNzMsImV4cCI6MTc0MTE1ODY3M30.2gN0afI9jsstUeCtyyUZfQim1vGpME8U8D2tHUbR8Co",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2M3Y2RjNDBlN2M5MGQ4Y2I4MGQ2YTIiLCJpYXQiOjE3NDEyMTE1MzYsImV4cCI6MTc0MTIxNTEzNn0.04fc2d0qcQr3WoXXNT7f-GdaAk5BvID7Aunb29hDiBc",
 						"type": "text"
 					}
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"product\":\"Naranjas\",\r\n    \"quantity\":5\r\n}",
+					"raw": "{\r\n    \"product\":\"Manzanas\",\r\n    \"quantity\":5\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -27,7 +27,44 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:3000/productManager/v1/shopping/add",
+					"raw": "http://localhost:3001/productManager/v1/shopping/add",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"productManager",
+						"v1",
+						"shopping",
+						"add"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CheckOut",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "x-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2M3Y2RjNDBlN2M5MGQ4Y2I4MGQ2YTIiLCJpYXQiOjE3NDEyMTE1MzYsImV4cCI6MTc0MTIxNTEzNn0.04fc2d0qcQr3WoXXNT7f-GdaAk5BvID7Aunb29hDiBc",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/productManager/v1/shopping/checkOut",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -37,7 +74,7 @@
 						"productManager",
 						"v1",
 						"shopping",
-						"add"
+						"checkOut"
 					]
 				}
 			},

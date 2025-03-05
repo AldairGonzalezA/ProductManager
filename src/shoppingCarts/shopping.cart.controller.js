@@ -18,7 +18,7 @@ export const addShoppingCart = async (req, res) => {
             })
         }
 
-        if(product.stock <= 0){
+        if(product.stock <= data.quantity){
             return res.status(400).json({
                 success: false,
                 msg: 'Product out of stock'
@@ -68,10 +68,10 @@ export const addShoppingCart = async (req, res) => {
     }
 }
 
-export const finalllyShop = async (req, res) => {
+export const checkOut = async (req, res) => {
     try {
         const user = req.usuario;
-        const cart = await ShoppingCart.findOne({owner: user._id});
+        const cart = await ShoppingCart.findOne({owner: user.id});
 
         if(!cart){
             return res.status(400).json({
@@ -86,8 +86,14 @@ export const finalllyShop = async (req, res) => {
             total: cart.totalPrice
         })
 
-        await User.findByIdAndUpdate(user_id, {
+        await User.findByIdAndUpdate(user._id, {
             $push: {receipts: receipt._id}
+        })
+
+        res.status(200).json({
+            success: true,
+            msg: 'Receipt created successfuly',
+            receipt
         })
     } catch (error) {
         res.status(500).json({

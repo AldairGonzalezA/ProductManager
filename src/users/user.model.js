@@ -1,4 +1,6 @@
 import { Schema, model } from "mongoose";
+import mongooseAutoPopulate from "mongoose-autopopulate";
+
 
 const UserSchema = Schema({
     name: {
@@ -38,7 +40,8 @@ const UserSchema = Schema({
     },
     receipts:[{
         type: Schema.Types.ObjectId,
-        ref: 'Receipt'
+        ref: 'Receipt',
+        autopopulate: {select : 'date products total -_id'}
     }],
     estado: {
         type: Boolean,
@@ -51,12 +54,6 @@ const UserSchema = Schema({
     }
 );
 
-UserSchema.methods.toJson = function(){
-    const {__v, password, _id, ...usuario
-        
-    } = this.toObjects();
-    usuario.uid = _id;
-    return usuario;
-}
+UserSchema.plugin(mongooseAutoPopulate);
 
 export default model('User', UserSchema);

@@ -1,9 +1,9 @@
 {
 	"info": {
-		"_postman_id": "517bf94f-adc9-44b6-996b-9a3022f1ae0a",
+		"_postman_id": "d8d880c0-737c-463e-87db-c54aecb276af",
 		"name": "Users",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "42082102"
+		"_exporter_id": "42663886"
 	},
 	"item": [
 		{
@@ -52,12 +52,12 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:3000/productManager/v1/auth/login",
+					"raw": "http://localhost:3001/productManager/v1/auth/login",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "3000",
+					"port": "3001",
 					"path": [
 						"productManager",
 						"v1",

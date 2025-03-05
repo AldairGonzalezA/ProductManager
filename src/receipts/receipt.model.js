@@ -1,5 +1,5 @@
 import { Schema, model } from "mongoose";
-
+import mongooseAutoPopulate from "mongoose-autopopulate";
 const receiptSchema = Schema({
     date: {
         type: Date,
@@ -14,7 +14,8 @@ const receiptSchema = Schema({
         productId: {
             type: Schema.Types.ObjectId,
             ref: 'Product',
-            required: true
+            required: true,
+            autopopulate: { select: 'name brand ._id'}
         },
         quantity:{
             type: Number,
@@ -36,5 +37,7 @@ const receiptSchema = Schema({
         versionKey: false
     }
 );
+
+receiptSchema.plugin(mongooseAutoPopulate)
 
 export default model('Receipt', receiptSchema);

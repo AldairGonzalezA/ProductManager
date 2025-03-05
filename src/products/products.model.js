@@ -22,7 +22,7 @@ const productSchema = Schema ({
         required: [true, 'Category is required']
     },
     salePrice: {
-        type: Numeber,
+        type: Number,
         required: [true, 'Sale Price is required'],
         min: 0.00
     },
@@ -32,7 +32,7 @@ const productSchema = Schema ({
     },
     stock: {
         type: Number,
-        default: 0
+        required: true
     },
     status: {
         type: Boolean,

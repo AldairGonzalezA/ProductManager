@@ -13,6 +13,7 @@ router.get("/", getProducts)
 router.get(
     "/findProduct/:id",
     [
+
         check("id", "id is invalid").isMongoId(),
         check("id").custom(existeProduct),
         validarCampos
@@ -22,11 +23,11 @@ router.get(
 
 router.post(
     "/",
-    validarJWT,
     [
+        validarJWT,
         tieneRol("ADMIN_ROLE"),
-        check("name", "The name is required").not().isEmpty(),
-        check("price", "The price is required").isNumeric(),
+        check("name", "Name is required").not().isEmpty(),
+        check("salePrice", "The price is required").isNumeric(),
         validarCampos
     ],
     saveProduct

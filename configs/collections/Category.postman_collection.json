@@ -1,0 +1,189 @@
+{
+	"info": {
+		"_postman_id": "c2be011c-ff39-4a9c-bf4c-aae945b2ef12",
+		"name": "Category",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "42082102"
+	},
+	"item": [
+		{
+			"name": "SaveCategory",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "x-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2M3Y2RjNDBlN2M5MGQ4Y2I4MGQ2YTIiLCJpYXQiOjE3NDExNDk4NDAsImV4cCI6MTc0MTE1MzQ0MH0.co0M1cVDwzkHdJ9_mOOKxQ9cdjdW4tPpj8vRZV-wBTk",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"Frutas\",\r\n    \"description\":\"Alimentos relacionados con cereales\"   \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/productManager/v1/category/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"productManager",
+						"v1",
+						"category",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetCategories",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/productManager/v1/category/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"productManager",
+						"v1",
+						"category",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SearchCategory",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/productManager/v1/category/searchCategory/67c7d6cd6f1724b19d826440",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"productManager",
+						"v1",
+						"category",
+						"searchCategory",
+						"67c7d6cd6f1724b19d826440"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UpdateCategory",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "x-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2M3Y2RjNDBlN2M5MGQ4Y2I4MGQ2YTIiLCJpYXQiOjE3NDExNDk4NDAsImV4cCI6MTc0MTE1MzQ0MH0.co0M1cVDwzkHdJ9_mOOKxQ9cdjdW4tPpj8vRZV-wBTk",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"Cereales\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/productManager/v1/category/67c7d7206f1724b19d826447",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"productManager",
+						"v1",
+						"category",
+						"67c7d7206f1724b19d826447"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteCategory",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "x-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2JlNzAwYjc5YTFiNDQ3Yzg1YzAwODAiLCJpYXQiOjE3NDA1MzQ1NjgsImV4cCI6MTc0MDUzODE2OH0.jmHv4smWCkyVnNmbhCnhFJXFNPoimzd7lr2qnTuxzzw",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3000/productManager/v1/category/67be6efe96fbc3cc6d70956",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"productManager",
+						"v1",
+						"category",
+						"67be6efe96fbc3cc6d70956"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "x-token",
+			"value": "",
+			"type": "string"
+		}
+	]
+}

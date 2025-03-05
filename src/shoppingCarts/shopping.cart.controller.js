@@ -31,7 +31,7 @@ export const addShoppingCart = async (req, res) => {
                 products:[{
                     productId: product._id,
                     quantity: data.quantity,
-                    price: product.price
+                    price: product.salePrice
                 }]
             })
         } else {
@@ -43,12 +43,13 @@ export const addShoppingCart = async (req, res) => {
                 cart.products.push({
                     productId: product._id,
                     quantity: data.quantity,
-                    price: product.price
+                    price: product.salePrice
                 })
             }
         }
-
-        Product.findByIdAndUpdate(product._id, {sales: sales+1}, {stock: stock-quantity}, {new: true});
+        const newSales = product.sales;
+        const newStock = product.stock;
+        Product.findByIdAndUpdate(product._id, {sales: newSales + data.quantity}, {stock: newStock - data.quantity}, {new: true});
 
         cart.totalPrice = cart.products.reduce((sum, item) => sum + (item.price * item.quantity), 0);
         await cart.save();

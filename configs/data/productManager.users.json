@@ -1,0 +1,40 @@
+[{
+  "_id": {
+    "$oid": "67c7cd300e7c90d8cb80d69f"
+  },
+  "name": "Marcos",
+  "surname": "Martinez",
+  "username": "Marcosmartinez",
+  "email": "marcos@gmail.com",
+  "password": "$argon2id$v=19$m=65536,t=3,p=4$xs6MpxL5fFwL3ps6ginRsA$5PW4HqmFtXF9k3l5YUu5RJWNZwlBnPtah/k6hMlFJZw",
+  "phone": "18391893",
+  "role": "CLIENT_ROLE",
+  "receipts": [],
+  "estado": true,
+  "createdAt": {
+    "$date": "2025-03-05T04:04:00.603Z"
+  },
+  "updatedAt": {
+    "$date": "2025-03-05T04:04:00.603Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "67c7cdc40e7c90d8cb80d6a2"
+  },
+  "name": "Aldair",
+  "surname": "Gonzalez",
+  "username": "AldaGon",
+  "email": "aldair@gmail.com",
+  "password": "$argon2id$v=19$m=65536,t=3,p=4$0JCvJOuZYe5bILwFplw8BQ$WFi1lzPpZDEQBifsjJgXfP09qhad6byY6U9ex2x7cao",
+  "phone": "12345678",
+  "role": "ADMIN_ROLE",
+  "receipts": [],
+  "estado": true,
+  "createdAt": {
+    "$date": "2025-03-05T04:06:28.255Z"
+  },
+  "updatedAt": {
+    "$date": "2025-03-05T04:40:46.724Z"
+  }
+}]

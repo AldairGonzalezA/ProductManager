@@ -67,7 +67,7 @@ export const register = async (req,res) => {
         email: data.email,
         phone: data.phone,
         password: encryptedPassword,
-        role: data.role,
+        role: "CLIENT_ROLE"
     })
 
     return res.status(201).json({
@@ -84,4 +84,36 @@ export const register = async (req,res) => {
             error: error.mesage
         });
    }
+}
+
+export const registerAdmin = async (req, res) => {
+    try {
+        const data = req.body;
+    
+        const encryptedPassword = await hash(data.password);
+    
+        const user = await User.create({
+            name: data.name,
+            surname: data.surname,
+            username: data.username,
+            email: data.email,
+            phone: data.phone,
+            password: encryptedPassword,
+            role: "ADMIN_ROLE"
+        })
+    
+        return res.status(201).json({
+            message: "User registered successfully",
+            userDetails: {
+                user: user.email
+            }
+        })
+    
+       } catch (error) {
+            console.log(error);
+            return res.status(500).json({
+                msg: 'User registration failer',
+                error: error.mesage
+            });
+       }
 }

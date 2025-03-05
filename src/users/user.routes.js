@@ -22,6 +22,7 @@ router.get(
 router.put(
     "/:id",
     [
+        validarJWT,
         check("id", "id is invalid").isMongoId(),
         check("id").custom(existeUserById),
         validarCampos
@@ -34,6 +35,7 @@ router.put(
     [
         validarJWT,
         check("id", "ID is not valid").isMongoId(),
+        check("id").custom(existeUserById),
         validarCampos
     ],
     updatePassword

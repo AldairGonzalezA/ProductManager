@@ -1,0 +1,42 @@
+[{
+  "_id": {
+    "$oid": "67c7e743335835f1dac4db9d"
+  },
+  "name": "Naranjas",
+  "description": "una fruta jugosa",
+  "brand": "La granja del borrego",
+  "category": {
+    "$oid": "67c7d9dd93dfa0c583cbccaf"
+  },
+  "salePrice": 5,
+  "sales": 0,
+  "stock": 25,
+  "status": true,
+  "createdAt": {
+    "$date": "2025-03-05T05:55:15.563Z"
+  },
+  "updatedAt": {
+    "$date": "2025-03-05T05:55:15.563Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "67c7eb9edc8d66a2f305b593"
+  },
+  "name": "Manzanas",
+  "description": "una fruta jugosa",
+  "brand": "La granja del borrego",
+  "category": {
+    "$oid": "67c7d9dd93dfa0c583cbccaf"
+  },
+  "salePrice": 4,
+  "sales": 0,
+  "stock": 25,
+  "status": true,
+  "createdAt": {
+    "$date": "2025-03-05T06:13:50.466Z"
+  },
+  "updatedAt": {
+    "$date": "2025-03-05T06:13:50.466Z"
+  }
+}]

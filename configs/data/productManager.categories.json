@@ -1,0 +1,27 @@
+[{
+  "_id": {
+    "$oid": "67c7d6cd6f1724b19d826440"
+  },
+  "name": "Vegetales",
+  "description": "Alimentos relacionados con Vegetales",
+  "status": true,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67c7d7206f1724b19d826447"
+  },
+  "name": "Cereales",
+  "description": "Alimentos relacionados con cereales",
+  "status": true,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67c7d9dd93dfa0c583cbccaf"
+  },
+  "name": "Frutas",
+  "description": "Alimentos relacionados con cereales",
+  "status": true,
+  "__v": 0
+}]

@@ -3,9 +3,11 @@ import Product from '../products/products.model.js';
 import Category from '../category/category.model.js';
 
 export const saveProduct = async (req, res) => {
+    console.log("hola")
     try {
         const data = req.body;
         const category = await Category.findOne({name: data.category});
+        
 
         if(!category) {
             return res.status(400).json({
@@ -37,7 +39,7 @@ export const saveProduct = async (req, res) => {
         res.status(500).json({
             success: false,
             msg: 'Error saving product',
-            error: error.message
+            error: error.message 
         })
     }
 }

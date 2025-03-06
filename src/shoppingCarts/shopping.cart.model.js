@@ -1,4 +1,6 @@
 import { Schema, model } from "mongoose";
+import mongooseAutoPopulate from "mongoose-autopopulate";
+
 
 const shoppingCartSchema = Schema({
     owner: {
@@ -10,7 +12,8 @@ const shoppingCartSchema = Schema({
         productId: {
             type: Schema.Types.ObjectId,
             ref: 'Product',
-            required: true
+            required: true,
+            autopopulate: {select: 'name brand '}
         },
         quantity:{
             type: Number,
@@ -32,5 +35,7 @@ const shoppingCartSchema = Schema({
         versionKey: false
     }
 );
+
+shoppingCartSchema.plugin(mongooseAutoPopulate);
 
 export default model('ShoppingCart', shoppingCartSchema);

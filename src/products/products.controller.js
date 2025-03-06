@@ -46,14 +46,15 @@ export const saveProduct = async (req, res) => {
 
 export const getProducts = async (req = request, res = response) => {
     try {
-        const { limite = 10, desde = 0, sales, name, category, sort} = req.query;
+        const { limite = 10, desde = 0, sales, name, category,  stock, sort} = req.query;
         let query = {status: true};
         
+        if(stock){
+            query.stock = Number(stock);
+        }
+
         if(sales){
             query.sales = Number(sales);
-        }
-        if(name){
-            query.name = name;
         }
         if(category){
             query.category = category;
@@ -64,7 +65,7 @@ export const getProducts = async (req = request, res = response) => {
             if(sort === "A-Z") sortOptions.name = 1;
             else if(sort === "Z-A") sortOptions.name = -1;
             else if(sort === "salesAsc") sortOptions.sales = 1;
-            else if(sort === "salesDesc") sortOptions.sales = -1;
+            else if(sort === "moreSell") sortOptions.sales = -1;
         }
 
         const [total, products] = await Promise.all([
@@ -109,6 +110,33 @@ export const searchProduct = async (req, res = response) => {
         res.status(500).json({
             success: false,
             msg: 'Error searching products',
+            error: error.message
+        })
+    }
+}
+
+export const searchProductName = async (req, res = response) => {
+    try {
+        const {product} = req.query;
+        const productNameClean = product.replace(/\s+/g,'').toLowerCase();
+        const product_ = await Product.find({
+            name: { $regex: new RegExp(productNameClean, 'i')}
+        })
+        if(!product_.lenght === 0){
+            return res.status(404).json({
+                success: false,
+                msg: 'Product not found'
+            })
+        }
+
+        return res.status(200).json({
+            success: true,
+            product_
+        })
+    } catch (error) {
+        res.status(500).json({
+            success: false,
+            msg: 'Error to search the product',
             error: error.message
         })
     }

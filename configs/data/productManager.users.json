@@ -29,12 +29,22 @@
   "password": "$argon2id$v=19$m=65536,t=3,p=4$0JCvJOuZYe5bILwFplw8BQ$WFi1lzPpZDEQBifsjJgXfP09qhad6byY6U9ex2x7cao",
   "phone": "12345678",
   "role": "ADMIN_ROLE",
-  "receipts": [],
+  "receipts": [
+    {
+      "$oid": "67c9350dc490c313001ebacc"
+    },
+    {
+      "$oid": "67c93586890879c384bece22"
+    },
+    {
+      "$oid": "67c937013c249136d283babd"
+    }
+  ],
   "estado": true,
   "createdAt": {
     "$date": "2025-03-05T04:06:28.255Z"
   },
   "updatedAt": {
-    "$date": "2025-03-05T04:40:46.724Z"
+    "$date": "2025-03-06T05:47:45.038Z"
   }
 }]

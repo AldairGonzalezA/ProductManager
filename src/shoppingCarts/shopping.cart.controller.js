@@ -47,9 +47,13 @@ export const addShoppingCart = async (req, res) => {
                 })
             }
         }
-        const newSales = product.sales;
-        const newStock = product.stock;
-        Product.findByIdAndUpdate(product._id, {sales: newSales + data.quantity}, {stock: newStock - data.quantity}, {new: true});
+        const newStock = product.stock - data.quantity;
+        const newSales = product.sales + data.quantity;
+        await Product.findByIdAndUpdate(product._id, {
+            stock: newStock,
+            sales: newSales
+        },{new: true});
+        
 
         cart.totalPrice = cart.products.reduce((sum, item) => sum + (item.price * item.quantity), 0);
         await cart.save();
@@ -73,7 +77,7 @@ export const checkOut = async (req, res) => {
         const user = req.usuario;
         const cart = await ShoppingCart.findOne({owner: user.id});
 
-        if(!cart){
+        if(!cart || cart.products.length === 0){
             return res.status(400).json({
                 success: false,
                 msg: 'Shopping cart is empty'
@@ -89,6 +93,12 @@ export const checkOut = async (req, res) => {
         await User.findByIdAndUpdate(user._id, {
             $push: {receipts: receipt._id}
         })
+        
+        console.log(cart._id);
+        await ShoppingCart.findByIdAndUpdate(cart._id,{
+            $set: { products : [] },
+            
+        },{ totalPrice: 0.00})
 
         res.status(200).json({
             success: true,
@@ -96,10 +106,39 @@ export const checkOut = async (req, res) => {
             receipt
         })
     } catch (error) {
+        console.error("Error in checkout:", error);
         res.status(500).json({
             success: false,
-            msg: 'Error to finalize the shopping',
+            msg: "Error to finalize the shopping",
             error: error.message
+        });
+    }
+}
+
+export const viewShoppingCart = async (req, res) => {
+    try {
+        const user = req.usuario;
+        const cart = await ShoppingCart.findOne({owner: user._id})
+
+        if(!cart || cart.products.length === 0){
+            return res.status(404).json({
+                success: false,
+                msg: 'The shopping cart is empty'
+            })
+        }
+
+        return res.status(200).json({
+            success: true,
+            msg: `Shopping Cart of ${user.username}`,
+            cart
+        })
+
+
+    } catch (error) {
+        res.status(500).json({
+            success: false,
+            msg: 'Error to show the shopping Cart',
+            errors: error.message
         })
     }
 }

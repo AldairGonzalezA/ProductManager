@@ -1,10 +1,18 @@
 import { Router } from "express";
 import { check } from 'express-validator';
-import { addShoppingCart, checkOut } from "./shopping.cart.controller.js";
+import { addShoppingCart, checkOut, viewShoppingCart } from "./shopping.cart.controller.js";
 import { validarJWT } from "../middlewares/validar-jwt.js";
 import { validarCampos } from "../middlewares/validar-campos.js";
 
 const router = Router();
+
+router.get(
+    "/",
+    [
+        validarJWT
+    ],
+    viewShoppingCart
+)
 
 router.post(
     "/add",
@@ -26,5 +34,6 @@ router.post(
     ],
     checkOut
 )
+
 
 export default router;

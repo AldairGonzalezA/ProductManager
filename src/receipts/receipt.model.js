@@ -15,7 +15,7 @@ const receiptSchema = Schema({
             type: Schema.Types.ObjectId,
             ref: 'Product',
             required: true,
-            autopopulate: { select: 'name brand ._id'}
+             autopopulate: { select: 'name brand '}
         },
         quantity:{
             type: Number,

@@ -121,10 +121,19 @@ export const updatePassword = async (req, res = response) =>{
 export const deleteUser = async (req, res) => {
     try {
         const {id} = req.params;
+        const password = req.body;
         const autheticatedUser = req.usuario;
 
         if(autheticatedUser._id.toString() === id || autheticatedUser.role === "ADMIN_ROLE"){
             const user = await User.findByIdAndUpdate(id, {estado: false}, {new: true});
+
+            const validPassword = await verify(user.password, password);
+            if(!validPassword){
+                return res.status(404).json({
+                    success: false,
+                    msg: 'As a security measure, enter the user`s password to delete it'
+                })
+            }
 
             if(!user){
                 return res.status(400).json({

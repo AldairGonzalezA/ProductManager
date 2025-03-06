@@ -10,13 +10,13 @@
   },
   "salePrice": 5,
   "sales": 0,
-  "stock": 25,
+  "stock": 15,
   "status": true,
   "createdAt": {
     "$date": "2025-03-05T05:55:15.563Z"
   },
   "updatedAt": {
-    "$date": "2025-03-05T05:55:15.563Z"
+    "$date": "2025-03-06T06:01:08.821Z"
   }
 },
 {
@@ -30,13 +30,34 @@
     "$oid": "67c7d9dd93dfa0c583cbccaf"
   },
   "salePrice": 4,
-  "sales": 0,
-  "stock": 25,
+  "sales": 5,
+  "stock": 15,
   "status": true,
   "createdAt": {
     "$date": "2025-03-05T06:13:50.466Z"
   },
   "updatedAt": {
-    "$date": "2025-03-05T06:13:50.466Z"
+    "$date": "2025-03-06T06:04:23.104Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "67c937bd3c249136d283bad9"
+  },
+  "name": "Calabazas",
+  "description": "una fruta jugosa",
+  "brand": "Calabazas Festivas",
+  "category": {
+    "$oid": "67c7d9dd93dfa0c583cbccaf"
+  },
+  "salePrice": 25,
+  "sales": 0,
+  "stock": 10,
+  "status": true,
+  "createdAt": {
+    "$date": "2025-03-06T05:50:53.072Z"
+  },
+  "updatedAt": {
+    "$date": "2025-03-06T07:31:18.374Z"
   }
 }]

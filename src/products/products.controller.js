@@ -145,18 +145,7 @@ export const searchProductName = async (req, res = response) => {
 export const updateProduct = async (req, res = response) => {
     try {
         const { id } = req.params;
-        const { _id, category, sales, status, ...data} = req.body;
-        const newCategory = await Category.findOne({name: data.category});
-        if(category){
-            const categoryFound = await Category.findOne({name: category});
-            if(!categoryFound){
-                return res.status(400).json({
-                    success: false,
-                    msg: 'Category not found'
-                });
-            }
-            data.category = categoryFound._id;
-        }
+        const { _id, sales, status, category, ...data} = req.body;
         
         const product = await Product.findByIdAndUpdate(id, data, {new: true});
 

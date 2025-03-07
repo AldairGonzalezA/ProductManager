@@ -1,4 +1,5 @@
 import { Schema, model } from 'mongoose';
+import mongooseAutoPopulate from 'mongoose-autopopulate';
 
 const productSchema = Schema ({
     name: {
@@ -19,7 +20,8 @@ const productSchema = Schema ({
     category: {
         type: Schema.Types.ObjectId,
         ref: 'Category',
-        required: [true, 'Category is required']
+        required: [true, 'Category is required'],
+        autopopulate: {select: 'name'}
     },
     salePrice: {
         type: Number,
@@ -44,5 +46,7 @@ const productSchema = Schema ({
         versionKey: false
     }
 );
+
+productSchema.plugin(mongooseAutoPopulate);
 
 export default model('Product', productSchema);

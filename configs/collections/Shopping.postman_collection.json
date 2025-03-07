@@ -13,13 +13,13 @@
 				"header": [
 					{
 						"key": "x-token",
-						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2M3Y2RjNDBlN2M5MGQ4Y2I4MGQ2YTIiLCJpYXQiOjE3NDEyNDAwMzUsImV4cCI6MTc0MTI0MzYzNX0.i-roYAcRNXKAQu0P4SlPqdherwYWGNiTT4PI2lOP5BM",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2M3Y2RjNDBlN2M5MGQ4Y2I4MGQ2YTIiLCJpYXQiOjE3NDEzMzE2MDksImV4cCI6MTc0MTMzNTIwOX0.M5Q9G-fkhgYzytuMEdvM-c6fVGnTa6kQI7mcBYmMQ3k",
 						"type": "text"
 					}
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"product\":\"Manzanas\",\r\n    \"quantity\":5\r\n}",
+					"raw": "{\r\n    \"product\":\"Manzanas\",\r\n    \"quantity\":10\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -50,7 +50,7 @@
 				"header": [
 					{
 						"key": "x-token",
-						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2M3Y2RjNDBlN2M5MGQ4Y2I4MGQ2YTIiLCJpYXQiOjE3NDEyNDAwMzUsImV4cCI6MTc0MTI0MzYzNX0.i-roYAcRNXKAQu0P4SlPqdherwYWGNiTT4PI2lOP5BM",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2M3Y2RjNDBlN2M5MGQ4Y2I4MGQ2YTIiLCJpYXQiOjE3NDEzMzE2MDksImV4cCI6MTc0MTMzNTIwOX0.M5Q9G-fkhgYzytuMEdvM-c6fVGnTa6kQI7mcBYmMQ3k",
 						"type": "text"
 					}
 				],
@@ -87,7 +87,7 @@
 				"header": [
 					{
 						"key": "x-token",
-						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2M3Y2RjNDBlN2M5MGQ4Y2I4MGQ2YTIiLCJpYXQiOjE3NDEyNDE3MTcsImV4cCI6MTc0MTI0NTMxN30.dhBU2RTlry3c0kZU3N6qBLa-no2X4zzGnsGTdoKOQTk",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2M3Y2RjNDBlN2M5MGQ4Y2I4MGQ2YTIiLCJpYXQiOjE3NDEzMzUyNzksImV4cCI6MTc0MTMzODg3OX0.F5fk2gA3fAw6BUmMpvwPeQCP055YyrF2aBGsnMFw48o",
 						"type": "text"
 					}
 				],
@@ -103,6 +103,43 @@
 						"v1",
 						"shopping",
 						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UpdateShoppingCart",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "x-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2M3Y2RjNDBlN2M5MGQ4Y2I4MGQ2YTIiLCJpYXQiOjE3NDEzMzUyNzksImV4cCI6MTc0MTMzODg3OX0.F5fk2gA3fAw6BUmMpvwPeQCP055YyrF2aBGsnMFw48o",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"quantityToRemove\": 5\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/productManager/v1/shopping/67c7eb9edc8d66a2f305b593",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"productManager",
+						"v1",
+						"shopping",
+						"67c7eb9edc8d66a2f305b593"
 					]
 				}
 			},

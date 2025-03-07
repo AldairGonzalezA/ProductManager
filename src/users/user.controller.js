@@ -88,20 +88,9 @@ export const updateUser = async (req, res = response) => {
 export const updatePassword = async (req, res = response) =>{
     try {
         const { id } = req.params;
-        const data = req.body
-        const password  = data.password;
-        const  oldPassword  = data.oldPassword;
-        const user = await User.findById(id);
-        const validPassword = await verify(user.password, oldPassword);
-        if(!validPassword){
-            return res.status(400).json({
-                msg:'La contraseña antigua es incorrecta'
-            })
-        }
-        if(password){
-            data.password = await hash(password);
-        }
-        const updateUser = await User.findByIdAndUpdate(id, {password:data.password}, {new: true});
+        const {password} = req.body;
+       
+        const updateUser = await User.findByIdAndUpdate(id, {password}, {new: true});
 
         res.status(200).json({
             success: true,
@@ -120,46 +109,21 @@ export const updatePassword = async (req, res = response) =>{
 
 export const deleteUser = async (req, res) => {
     try {
-        const {id} = req.params;
-        const password = req.body;
-        const autheticatedUser = req.usuario;
+        const { id } = req.params;
 
-        if(autheticatedUser._id.toString() === id || autheticatedUser.role === "ADMIN_ROLE"){
-            const user = await User.findByIdAndUpdate(id, {estado: false}, {new: true});
+        await User.findByIdAndUpdate(id, { estado: false }, { new: true });
 
-            const validPassword = await verify(user.password, password);
-            if(!validPassword){
-                return res.status(404).json({
-                    success: false,
-                    msg: 'As a security measure, enter the user`s password to delete it'
-                })
-            }
-
-            if(!user){
-                return res.status(400).json({
-                    success: false,
-                    msg: 'User not found'
-                })
-            }
-
-            return res.status(200).json({
-                succes: true,
-                msg: 'Usuario desactivado',
-                user,
-                autheticatedUser
-            })
-        }
-        
-        return res.status(404).json({
-            success: false,
-            msg: 'Only the user can delete their profile or an administrator'
-        })
+        return res.status(200).json({
+            success: true,
+            msg: 'Deactivated user',
+            id,
+        });
     } catch (error) {
         res.status(500).json({
-            succes: false,
-            msg: 'Error al desactivar usuario',
-            error
-        })
+            success: false,
+            msg: 'Error deactivating user',
+            error: error.message
+        });
     }
-}
+};
  

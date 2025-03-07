@@ -9,14 +9,14 @@
     "$oid": "67c7d9dd93dfa0c583cbccaf"
   },
   "salePrice": 5,
-  "sales": 0,
-  "stock": 15,
+  "sales": 15,
+  "stock": 0,
   "status": true,
   "createdAt": {
     "$date": "2025-03-05T05:55:15.563Z"
   },
   "updatedAt": {
-    "$date": "2025-03-06T06:01:08.821Z"
+    "$date": "2025-03-07T07:59:06.170Z"
   }
 },
 {
@@ -30,14 +30,14 @@
     "$oid": "67c7d9dd93dfa0c583cbccaf"
   },
   "salePrice": 4,
-  "sales": 5,
-  "stock": 15,
+  "sales": 35,
+  "stock": 35,
   "status": true,
   "createdAt": {
     "$date": "2025-03-05T06:13:50.466Z"
   },
   "updatedAt": {
-    "$date": "2025-03-06T06:04:23.104Z"
+    "$date": "2025-03-07T08:40:59.709Z"
   }
 },
 {
@@ -46,7 +46,7 @@
   },
   "name": "Calabazas",
   "description": "una fruta jugosa",
-  "brand": "Calabazas Festivas",
+  "brand": "Calabazas Halloween",
   "category": {
     "$oid": "67c7d9dd93dfa0c583cbccaf"
   },
@@ -58,6 +58,6 @@
     "$date": "2025-03-06T05:50:53.072Z"
   },
   "updatedAt": {
-    "$date": "2025-03-06T07:31:18.374Z"
+    "$date": "2025-03-07T03:46:08.866Z"
   }
 }]

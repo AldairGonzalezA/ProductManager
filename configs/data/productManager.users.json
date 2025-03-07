@@ -24,9 +24,9 @@
   },
   "name": "Aldair",
   "surname": "Gonzalez",
-  "username": "AldaGon",
+  "username": "Aldair_Gonzalez",
   "email": "aldair@gmail.com",
-  "password": "$argon2id$v=19$m=65536,t=3,p=4$0JCvJOuZYe5bILwFplw8BQ$WFi1lzPpZDEQBifsjJgXfP09qhad6byY6U9ex2x7cao",
+  "password": "$argon2id$v=19$m=65536,t=3,p=4$gkHbdlj1p3yxUmh5U8jFKg$DFnl3+0Yr4H8kS9vMoYba/ihXR+e9ZarRsUPSvxD62c",
   "phone": "12345678",
   "role": "ADMIN_ROLE",
   "receipts": [
@@ -38,6 +38,15 @@
     },
     {
       "$oid": "67c937013c249136d283babd"
+    },
+    {
+      "$oid": "67ca9d5ccadc270b2bc3cba7"
+    },
+    {
+      "$oid": "67caa56627309c02d5f96bdb"
+    },
+    {
+      "$oid": "67caa88e0ceece5c66857ad3"
     }
   ],
   "estado": true,
@@ -45,6 +54,6 @@
     "$date": "2025-03-05T04:06:28.255Z"
   },
   "updatedAt": {
-    "$date": "2025-03-06T05:47:45.038Z"
+    "$date": "2025-03-07T08:04:30.745Z"
   }
 }]

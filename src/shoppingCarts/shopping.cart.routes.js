@@ -1,8 +1,10 @@
 import { Router } from "express";
 import { check } from 'express-validator';
-import { addShoppingCart, checkOut, viewShoppingCart } from "./shopping.cart.controller.js";
+import { addShoppingCart, checkOut, removeProductFromCart, viewShoppingCart } from "./shopping.cart.controller.js";
 import { validarJWT } from "../middlewares/validar-jwt.js";
 import { validarCampos } from "../middlewares/validar-campos.js";
+import { validateStockProduct } from "../middlewares/validar-products.js";
+import { handleShoppingCart, verifyCart, processReceipt, clearCart, validateProductInCart, updateProductStockAndSales } from "../middlewares/validar-shoppingCart.js";
 
 const router = Router();
 
@@ -21,6 +23,8 @@ router.post(
         check("quantity", "quantity is required").not().isEmpty(),
         check("quantity", "quantity must be a number").isNumeric(),
         check("quantity", "quantity must be greater than 0").isInt({ min: 0 }),
+        validateStockProduct,
+        handleShoppingCart,
         validarCampos
     ],
     addShoppingCart
@@ -30,9 +34,21 @@ router.post(
     "/checkOut",
     [
         validarJWT,
-        validarCampos
+        verifyCart,
+        processReceipt,
+        clearCart
     ],
     checkOut
+)
+
+router.put(
+    "/:id",
+    [
+        validarJWT,
+        validateProductInCart,
+        updateProductStockAndSales,
+    ],
+    removeProductFromCart
 )
 
 

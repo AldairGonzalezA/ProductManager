@@ -120,13 +120,13 @@
 				"header": [
 					{
 						"key": "x-token",
-						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2M3Y2RjNDBlN2M5MGQ4Y2I4MGQ2YTIiLCJpYXQiOjE3NDExNDkzMzUsImV4cCI6MTc0MTE1MjkzNX0.d178DPBfCTI7b0GQF9xAfiedqC81_9ZRyMWbtmI4TjA",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2M3Y2RjNDBlN2M5MGQ4Y2I4MGQ2YTIiLCJpYXQiOjE3NDEzMTk1OTgsImV4cCI6MTc0MTMyMzE5OH0.6LJ-HviWMb6cwh5DHmDbK0lJYJB6neLHtw-Az3C-0u0",
 						"type": "text"
 					}
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"username\":\"AldaGon\"\r\n}",
+					"raw": "{\r\n    \"username\":\"Aldair_Gonzalez\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -157,13 +157,13 @@
 				"header": [
 					{
 						"key": "x-token",
-						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2M3Y2RjNDBlN2M5MGQ4Y2I4MGQ2YTIiLCJpYXQiOjE3NDExNDkzMzUsImV4cCI6MTc0MTE1MjkzNX0.d178DPBfCTI7b0GQF9xAfiedqC81_9ZRyMWbtmI4TjA",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2M3Y2RjNDBlN2M5MGQ4Y2I4MGQ2YTIiLCJpYXQiOjE3NDEzMjE4MDUsImV4cCI6MTc0MTMyNTQwNX0.PQ5MnLayvWBFSZDucbhHL7FPosw6AAZuYIg9J_hZ9_c",
 						"type": "text"
 					}
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"password\":\"admin123\",\r\n    \"oldPassword\":\"11111111\"\r\n}",
+					"raw": "{\r\n    \"password\":\"admin123\",\r\n    \"oldPassword\":\"111111111\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -214,6 +214,43 @@
 						"v1",
 						"auth",
 						"registerAdmin"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteUser",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "x-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2M3Y2RjNDBlN2M5MGQ4Y2I4MGQ2YTIiLCJpYXQiOjE3NDEzMTk3NjksImV4cCI6MTc0MTMyMzM2OX0.KtyAjU_RcfPgFQU4kk50y_e-U-KNwk0s5ZonENXZ7hM",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"password\":\"admin123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/productManager/v1/user/67c7cdc40e7c90d8cb80d6a2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"productManager",
+						"v1",
+						"user",
+						"67c7cdc40e7c90d8cb80d6a2"
 					]
 				}
 			},

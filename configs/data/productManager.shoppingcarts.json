@@ -1,6 +1,6 @@
 [{
   "_id": {
-    "$oid": "67c7ecccf162705f8e3ef94f"
+    "$oid": "67caa74a0ceece5c66857a70"
   },
   "owner": {
     "$oid": "67c7cdc40e7c90d8cb80d6a2"
@@ -8,30 +8,20 @@
   "products": [
     {
       "productId": {
-        "$oid": "67c7e743335835f1dac4db9d"
+        "$oid": "67c7eb9edc8d66a2f305b593"
       },
       "quantity": 5,
-      "price": 5,
+      "price": 4,
       "_id": {
-        "$oid": "67c7ecccf162705f8e3ef950"
-      }
-    },
-    {
-      "productId": {
-        "$oid": "67c7e743335835f1dac4db9d"
-      },
-      "quantity": 5,
-      "price": 5,
-      "_id": {
-        "$oid": "67c7ed744703eced5e840efb"
+        "$oid": "67caa9110ceece5c66857b12"
       }
     }
   ],
-  "totalPrice": 50,
+  "totalPrice": 20,
   "createdAt": {
-    "$date": "2025-03-05T06:18:52.118Z"
+    "$date": "2025-03-07T07:59:06.139Z"
   },
   "updatedAt": {
-    "$date": "2025-03-05T06:21:40.347Z"
+    "$date": "2025-03-07T08:40:59.771Z"
   }
 }]

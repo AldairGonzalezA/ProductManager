@@ -5,6 +5,7 @@ import { validarJWT } from '../middlewares/validar-jwt.js';
 import { validarCampos } from '../middlewares/validar-campos.js';
 import { existeProduct } from "../helpers/db-validator.js";
 import { tieneRol } from '../middlewares/validar-role.js';
+import { validateCategoryProduct } from "../middlewares/validar-products.js";
 
 const router = Router();
 
@@ -46,7 +47,7 @@ router.put(
         tieneRol("ADMIN_ROLE"),
         check("id", "id is invalid").isMongoId(),
         check("id").custom(existeProduct),
-        validarCampos
+        validateCategoryProduct
     ],
     updateProduct
 )
@@ -58,7 +59,6 @@ router.delete(
         tieneRol("ADMIN_ROLE"),
         check("id", "id is invalid").isMongoId(),
         check("id").custom(existeProduct),
-        validarCampos
     ],
     deleteProduct
 )

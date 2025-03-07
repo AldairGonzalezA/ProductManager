@@ -4,6 +4,7 @@ import  {getUsers, getUserById, updateUser, deleteUser, updatePassword } from ".
 import { existeUserById } from "../helpers/db-validator.js";
 import { validarCampos } from "../middlewares/validar-campos.js";
 import { validarJWT} from "../middlewares/validar-jwt.js"
+import { validateUserDelete, validatePasswordUpdate } from "../middlewares/validar-user.js";
 
 const router = Router();
 
@@ -14,7 +15,6 @@ router.get(
     [
         check("id", "id is invalid").isMongoId(),
         check("id").custom(existeUserById),
-        validarCampos
     ],
     getUserById
 )
@@ -36,6 +36,7 @@ router.put(
         validarJWT,
         check("id", "ID is not valid").isMongoId(),
         check("id").custom(existeUserById),
+        validatePasswordUpdate,
         validarCampos
     ],
     updatePassword
@@ -47,7 +48,7 @@ router.delete(
         validarJWT,
         check("id", "id is invalid").isMongoId(),
         check("id").custom(existeUserById),
-        validarCampos
+        validateUserDelete
     ],
     deleteUser
 )

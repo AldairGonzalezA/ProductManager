@@ -275,19 +275,47 @@
 				"header": [
 					{
 						"key": "x-token",
-						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2M3Y2RjNDBlN2M5MGQ4Y2I4MGQ2YTIiLCJpYXQiOjE3NDEyNDYxMjgsImV4cCI6MTc0MTI0OTcyOH0.j0U3lXBgn46q6afoSH05b23C7lJfD2VIb8zBb8n6bho",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2M3Y2RjNDBlN2M5MGQ4Y2I4MGQ2YTIiLCJpYXQiOjE3NDEzMTgwNzUsImV4cCI6MTc0MTMyMTY3NX0.Ju-VIKQ5qysME709eZooyEfV1n0pkiFjEXZWTHaVaBg",
 						"type": "text"
 					}
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"brand\":\"Calabazas Halloween\",\r\n    \"stock\": 15\r\n}",
+					"raw": "{\r\n    \"brand\":\"Calabazas Halloween\",\r\n    \"category\":\"Frutas\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
 						}
 					}
 				},
+				"url": {
+					"raw": "http://localhost:3000/productManager/v1/products/67c937bd3c249136d283bad9",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"productManager",
+						"v1",
+						"products",
+						"67c937bd3c249136d283bad9"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteProduct",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "x-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2M3Y2RjNDBlN2M5MGQ4Y2I4MGQ2YTIiLCJpYXQiOjE3NDEzMTgwNzUsImV4cCI6MTc0MTMyMTY3NX0.Ju-VIKQ5qysME709eZooyEfV1n0pkiFjEXZWTHaVaBg",
+						"type": "text"
+					}
+				],
 				"url": {
 					"raw": "http://localhost:3000/productManager/v1/products/67c937bd3c249136d283bad9",
 					"protocol": "http",

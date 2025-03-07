@@ -1,1 +1,68 @@
-[]
+[{
+  "_id": {
+    "$oid": "67caa56627309c02d5f96bdb"
+  },
+  "customer": {
+    "$oid": "67c7cdc40e7c90d8cb80d6a2"
+  },
+  "products": [
+    {
+      "productId": {
+        "$oid": "67c7eb9edc8d66a2f305b593"
+      },
+      "quantity": 1,
+      "price": 4,
+      "_id": {
+        "$oid": "67caa55d27309c02d5f96bc9"
+      }
+    }
+  ],
+  "total": 4,
+  "date": {
+    "$date": "2025-03-07T07:51:02.856Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "67caa88e0ceece5c66857ad3"
+  },
+  "customer": {
+    "$oid": "67c7cdc40e7c90d8cb80d6a2"
+  },
+  "products": [
+    {
+      "productId": {
+        "$oid": "67c7e743335835f1dac4db9d"
+      },
+      "quantity": 5,
+      "price": 5,
+      "_id": {
+        "$oid": "67caa74a0ceece5c66857a71"
+      }
+    },
+    {
+      "productId": {
+        "$oid": "67c7eb9edc8d66a2f305b593"
+      },
+      "quantity": 1,
+      "price": 4,
+      "_id": {
+        "$oid": "67caa77a0ceece5c66857a97"
+      }
+    },
+    {
+      "productId": {
+        "$oid": "67c7eb9edc8d66a2f305b593"
+      },
+      "quantity": 5,
+      "price": 4,
+      "_id": {
+        "$oid": "67caa7810ceece5c66857aa9"
+      }
+    }
+  ],
+  "total": 49,
+  "date": {
+    "$date": "2025-03-07T08:04:30.737Z"
+  }
+}]

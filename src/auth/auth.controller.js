@@ -104,10 +104,8 @@ export const registerAdmin = async (req, res) => {
     
         return res.status(201).json({
             message: "User registered successfully",
-            userDetails: {
-                user: user.email
-            }
-        })
+            user
+    })
     
        } catch (error) {
             console.log(error);
